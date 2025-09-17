@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://vikanrj5pbyp"]
+
+[ext_resource type="Script" uid="uid://rdpg7q26dhx2" path="res://Scripts/menu.gd" id="1_fx0lf"]
+[ext_resource type="PackedScene" uid="uid://gmimenuqnx51" path="res://Scenes/background.tscn" id="1_sl0dh"]
+[ext_resource type="FontFile" uid="uid://rnsjdkmirpxk" path="res://Assets/FredokaOne-Regular.ttf" id="2_m7j7f"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fx0lf")
+
+[node name="Background" parent="." instance=ExtResource("1_sl0dh")]
+layout_mode = 1
+
+[node name="BackgroundColor" parent="Background" index="0"]
+color = Color(1, 1, 1, 1)
+
+[node name="Background" parent="Background" index="1"]
+modulate = Color(0.10918, 0.288477, 0.5375, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -398.0
+offset_top = 45.0
+offset_right = 399.0
+offset_bottom = 167.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_m7j7f")
+theme_override_font_sizes/font_size = 100
+text = "My First Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -43.0
+offset_right = 87.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_m7j7f")
+theme_override_font_sizes/font_size = 60
+text = "Play"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+
+[editable path="Background"]

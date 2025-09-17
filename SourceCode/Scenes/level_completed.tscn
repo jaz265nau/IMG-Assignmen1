@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbo82qnnruofk"]
+
+[ext_resource type="Script" uid="uid://cygwf282qw6o1" path="res://Scripts/level_completed.gd" id="1_accie"]
+[ext_resource type="PackedScene" uid="uid://gmimenuqnx51" path="res://Scenes/background.tscn" id="2_hax66"]
+[ext_resource type="FontFile" uid="uid://rnsjdkmirpxk" path="res://Assets/FredokaOne-Regular.ttf" id="3_nnvkx"]
+[ext_resource type="AudioStream" uid="uid://bpqfu37kwqtgf" path="res://Assets/Audio/LevelCompleted.wav" id="4_uhvql"]
+
+[node name="LevelCompleted" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_accie")
+
+[node name="Background" parent="." instance=ExtResource("2_hax66")]
+layout_mode = 1
+
+[node name="BackgroundColor" parent="Background" index="0"]
+color = Color(0.568235, 0.854902, 0.180392, 1)
+
+[node name="Background" parent="Background" index="1"]
+modulate = Color(0.178782, 0.5375, 0.10918, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -398.0
+offset_top = 45.0
+offset_right = 399.0
+offset_bottom = 167.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_nnvkx")
+theme_override_font_sizes/font_size = 100
+text = "Level Completed!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.5
+offset_top = -92.0
+offset_right = 125.5
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="RepeatButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_nnvkx")
+theme_override_font_sizes/font_size = 60
+text = "Repeat"
+
+[node name="MenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_nnvkx")
+theme_override_font_sizes/font_size = 60
+text = "Menu"
+
+[node name="LevelCompleted" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_uhvql")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/RepeatButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RepeatButton" to="." method="_on_repeat_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+
+[editable path="Background"]

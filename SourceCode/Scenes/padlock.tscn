@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://tytuisgp2cew"]
+
+[ext_resource type="Script" uid="uid://bc8t68cwm5alm" path="res://Scripts/padlock.gd" id="1_tltt2"]
+[ext_resource type="Texture2D" uid="uid://buqxubgg7ccrp" path="res://Assets/Images/Items/Padlock.png" id="1_vd1ot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0uqhd"]
+size = Vector2(68, 68)
+
+[node name="Padlock" type="Area2D"]
+script = ExtResource("1_tltt2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vd1ot")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0uqhd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

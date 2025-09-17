@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://gmimenuqnx51"]
+
+[ext_resource type="Texture2D" uid="uid://d1v3c50l4xsa0" path="res://Assets/Images/Background.png" id="1_eyvwv"]
+
+[node name="Background" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0259705, 0.0855772, 0.289063, 1)
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.110172, 0.0509804, 0.321569, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_eyvwv")
+stretch_mode = 1
